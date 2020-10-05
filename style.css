@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+  background: #c9ced3;
+  display: grid;
+  place-items: center;
+}
+
+.player-container {
+  height: 500px;
+  width: 400px;
+  background-color: #ebeff3;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+}
+
+.img-container {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  left: 3em;
+  top: -2em;
+}
+
+.img-container img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 1.5em;
+  box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.4);
+}
+
+#artist {
+  font-weight: 400;
+}
+
+/* Progress */
+.progress-container {
+  width: 90%;
+  background-color: #fff;
+  height: 4px;
+  margin: 2em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress {
+  background: #242323;
+  height: 100%;
+  border-radius: 5px;
+  width: 66%;
+}
+
+.duration-wrapper {
+  position: relative;
+  top: -1.75em;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Controls */
+
+.player-controls {
+  width: 200px;
+  position: relative;
+  left: 120px;
+  top: -10px;
+}
+
+.fas {
+  font-size: 2em;
+  color: rgb(126, 123, 123);
+  margin-right: 0.75em;
+}
+
+.fas:hover {
+  filter: brightness(60%);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 376px) {
+  .player-container {
+    width: 95vw;
+  }
+  .img-container {
+    left: 29px;
+  }
+  .player-controls {
+    left: 90px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .player-container {
+    width: 90vw;
+  }
+  .img-container {
+    width: 75vw;
+  }
+  .player-controls {
+    left: 60px;
+  }
+}
