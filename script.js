@@ -28,3 +28,26 @@ const pauseSong = () => {
 playBtn.addEventListener("click", () => {
   isPlaying ? pauseSong() : playSong();
 });
+
+function loadSong(song) {
+  //   console.log(song.album.title);
+  title.textContent = song.album.title;
+  artist.textContent = song.artist.name;
+  music.src = song.preview;
+  image.src = song.album.cover_medium;
+}
+
+const apiCall = () => {
+  const corsUrl = "https://cors-anywhere.herokuapp.com/";
+  const apiUrl = "https://api.deezer.com/chart/0/tracks";
+  axios
+    .get(`${corsUrl + apiUrl}`)
+    .then((response) => {
+      //   console.log(response.data.data);
+      return response.data.data;
+    })
+    .then((result) => loadSong(result[4]))
+    .catch((err) => console.log(err));
+};
+
+apiCall();
