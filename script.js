@@ -9,6 +9,9 @@ const nextBtn = document.getElementById("next");
 // check if song is playing or not
 let isPlaying = false;
 
+// to store top 10 tracks
+let songs = [];
+
 // play song
 const playSong = () => {
   isPlaying = true;
@@ -25,16 +28,33 @@ const pauseSong = () => {
   playBtn.setAttribute("title", "Play");
 };
 
-playBtn.addEventListener("click", () => {
-  isPlaying ? pauseSong() : playSong();
-});
-
 function loadSong(song) {
   //   console.log(song.album.title);
   title.textContent = song.album.title;
   artist.textContent = song.artist.name;
   music.src = song.preview;
   image.src = song.album.cover_medium;
+}
+
+let songIndex = 0;
+function prevSong() {
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
+function nextSong() {
+  songIndex++;
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
 }
 
 const apiCall = () => {
@@ -44,6 +64,8 @@ const apiCall = () => {
     .get(`${corsUrl + apiUrl}`)
     .then((response) => {
       //   console.log(response.data.data);
+      songs = response.data.data;
+      console.log(songs);
       return response.data.data;
     })
     .then((result) => loadSong(result[4]))
@@ -51,3 +73,10 @@ const apiCall = () => {
 };
 
 apiCall();
+
+playBtn.addEventListener("click", () => {
+  isPlaying ? pauseSong() : playSong();
+});
+
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
