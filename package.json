@@ -1,0 +1,23 @@
+{
+  "name": "upbeat",
+  "version": "1.0.0",
+  "description": "This is music player that plays tracks from a playlist in the chart using the Deezer API(music).",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anisha0612/UpBeat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anisha0612/UpBeat/issues"
+  },
+  "homepage": "https://github.com/anisha0612/UpBeat#readme",
+  "dependencies": {
+    "axios": "^0.21.0"
+  },
+  "type": "module"
+}
