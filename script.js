@@ -70,7 +70,7 @@ const apiCall = () => {
   const genreUrl = "https://api.deezer.com/radio";
 
   axios
-    .get(`${corsUrl + playlistUrl}`)
+    .get(`${corsUrl + topTracksUrl}`)
     .then((response) => {
       // console.log(response.data.data);
       songs = response.data.data;
